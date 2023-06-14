@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.0"
+ruby "3.0.0"
 
 gem "rails", "7.0.4"
 gem "sassc-rails", "2.1.2"
@@ -24,7 +24,7 @@ group :test do
   gem "selenium-webdriver", "4.2.0"
   gem "webdrivers", "5.0.0"
   gem "rails-controller-testing", "1.0.5"
-  gem "minitest", "5.15.0"
+  gem "minitest", "~>5.10" , "!=5.10.2"
   gem "minitest-reporters", "1.5.0"
   gem "guard", "2.18.0"
   gem "guard-minitest", "2.4.6"
