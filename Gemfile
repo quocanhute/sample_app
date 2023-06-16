@@ -1,17 +1,19 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "2.7.0"
+ruby "3.0.0"
 
 gem "rails", "7.0.4"
+gem "bootstrap-sass"
 gem "sassc-rails", "2.1.2"
 gem "sprockets-rails", "3.4.2"
 gem "importmap-rails", "1.1.0"
 gem "turbo-rails", "1.1.1"
 gem "stimulus-rails", "1.0.4"
 gem "jbuilder", "2.11.5"
-gem "puma", "5.6.4"
 gem "bootsnap", "1.12.0", require: false
+gem "puma", "5.6.4"
+
 group :development, :test do
   gem "sqlite3", "~> 1.4"
   gem "debug", "1.5.0", platforms: %i[ mri mingw x64_mingw ]
