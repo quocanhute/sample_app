@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :permission_view_profile, only: %i[ show ]
   def show
     @user = User.find(params[:id])
     # puts(@user)
@@ -20,6 +21,13 @@ class UsersController < ApplicationController
     end
   end
   private
+
+  def permission_view_profile
+    @user = User.find(params[:id])
+    if @user != current_user
+      redirect_to root_path, alert: "You can't view people profile"
+    end
+  end
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end

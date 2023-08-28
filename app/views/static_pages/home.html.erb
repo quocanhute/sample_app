@@ -4,6 +4,7 @@
   <h2>
     This is the home page for the Sample App application.
   </h2>
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  <% if logged_in? %>
+    <%= link_to "View all posts", posts_path, class: "btn btn-lg btn-primary" %>
+  <% end %>
 </div>
-<%= link_to image_tag("rails.svg", alt: "Rails logo", width: "200"), "https://rubyonrails.org/" %>
