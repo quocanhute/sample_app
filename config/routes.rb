@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   # get "path" to "controller"
   get 'sessions/new'
   get 'users/new'
