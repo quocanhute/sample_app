@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :require_login
   before_action :set_post, only: %i[ show edit update destroy ]
   before_action :authorize_admin , only: %i[ new edit update destroy]
 
@@ -60,18 +61,25 @@ class PostsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_post
-      @post = Post.find(params[:id])
-    end
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def post_params
-      params.require(:post).permit(:name, :title, :content)
-    end
+  # Only allow a list of trusted parameters through.
+  def post_params
+    params.require(:post).permit(:name, :title, :content)
+  end
 
-    def authorize_admin
-      unless current_user&.admin?
-        redirect_to root_path, alert: 'Access denied.'
-      end
+  def authorize_admin
+    unless current_user&.admin?
+      redirect_to root_path, alert: 'Access denied.'
     end
+  end
+
+  def require_login
+    unless logged_in?
+      flash[:error] = "You must be logged in to access this section"
+      redirect_to login_url # halts request cycle
+    end
+  end
 end

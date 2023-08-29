@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.0.0"
+ruby "3.2.2"
 
 gem "rails", "7.0.4"
 gem "bcrypt", "3.1.18"
@@ -18,6 +18,8 @@ gem "puma", "5.6.4"
 gem 'tzinfo-data'
 gem 'coffee-rails', '~> 5.0'
 gem "coffee-script-source", "~> 1.12"
+gem 'jquery-rails'
+gem 'jquery-validation-rails'
 
 group :development, :test do
   gem "sqlite3", "~> 1.4"
