@@ -20,9 +20,9 @@ gem 'coffee-rails', '~> 5.0'
 gem "coffee-script-source", "~> 1.12"
 gem 'jquery-rails'
 gem 'jquery-validation-rails'
-
+gem "mysql2", "~> 0.5.3"
+gem 'dotenv-rails'
 group :development, :test do
-  gem "sqlite3", "~> 1.4"
   gem "debug", "1.5.0", platforms: %i[ mri mingw x64_mingw ]
 end
 group :development do
