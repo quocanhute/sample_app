@@ -20,6 +20,12 @@ class UsersController < ApplicationController
       render 'new', status: :unprocessable_entity
     end
   end
+
+  def send_mail
+    SendMailJob.perform_async(current_user.email)
+  end
+
+
   private
 
   def permission_view_profile

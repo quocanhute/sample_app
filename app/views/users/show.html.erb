@@ -1,11 +1,14 @@
-<% provide(:title, @user.name) %>
+<% provide(:title, current_user.name) %>
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
-        <%= gravatar_for @user %>
-        <h2>Name: <%= @user.name %> </h2>
-        <h2>Name: <%= @user.role %> </h2>
+        <%= gravatar_for current_user %>
+
+        <h2>Name: <%= current_user.name %> </h2>
+        <h2>Role: <%= current_user.role %> </h2>
+        <h2>Mail: <%= current_user.email %> </h2>
+        <%= button_to "Say Hello Async", send_mail_path, remote:true%>
       </h1>
     </section>
   </aside>

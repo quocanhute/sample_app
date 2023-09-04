@@ -22,6 +22,7 @@ gem 'jquery-rails'
 gem 'jquery-validation-rails'
 gem "mysql2", "~> 0.5.3"
 gem 'dotenv-rails'
+gem "sidekiq"
 group :development, :test do
   gem "debug", "1.5.0", platforms: %i[ mri mingw x64_mingw ]
 end
