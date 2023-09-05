@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
       reset_session
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       log_in user
+      SendMailLoginMailer.with(user: user).welcome_email.deliver_later
       redirect_to user
     else
       # Create an error message.
@@ -15,6 +16,7 @@ class SessionsController < ApplicationController
       render 'new', status: :unprocessable_entity
     end
   end
+
   def destroy
     log_out if logged_in?
     redirect_to root_url, status: :see_other
